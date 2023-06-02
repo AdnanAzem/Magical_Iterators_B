@@ -64,7 +64,7 @@ namespace ariel{
 
     // Assignment operator
     MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator=(const AscendingIterator& other) {
-        if(&container != &other.container){
+        if(&container != &other.container){ // throw error if we try to assign different containers
             throw runtime_error("Error: Iterators cannot be assigned if they belong to different containers.");
         }
         if (this != &other) {
@@ -102,7 +102,7 @@ namespace ariel{
 
     // Pre-increment operator
     MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator++() {
-        if(currentIndex >= container.getElements().size()){
+        if(currentIndex >= container.getElements().size() || *this == end()){ // throw error when try to increase while we at the end
             throw runtime_error("Error: Iterator out of bounds!!!");
         }
         currentIndex++;
@@ -141,7 +141,7 @@ namespace ariel{
 
     // Assignment operator
     MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator=(const SideCrossIterator& other) {
-        if(&container != &other.container){
+        if(&container != &other.container){ // throw error if we try to assign different containers
             throw runtime_error("Error: Iterators cannot be assigned if they belong to different containers.");
         }
         if (this != &other) {
@@ -183,7 +183,7 @@ namespace ariel{
 
     // Pre-increment operator
     MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator++() {
-        if(currentIndex >= container.getElements().size() || *this == end()){
+        if(currentIndex >= container.getElements().size() || *this == end()){ // throw error when try to increase while we at the end
             throw runtime_error("Error: Iterator out of bounds!!!");
         }
         currentIndex++;
@@ -200,7 +200,7 @@ namespace ariel{
         return SideCrossIterator(container,container.size());
     }
 
-    //=========================== SideCrossIterator Class ===========================
+    //=========================== End SideCrossIterator Class ===========================
 
 
     //=========================== PrimeIterator Class ===========================
@@ -224,7 +224,7 @@ namespace ariel{
 
     // Assignment operator
     MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator=(const PrimeIterator& other) {
-        if(&container != &other.container){
+        if(&container != &other.container){ // throw error if we try to assign different containers
             throw runtime_error("Error: Iterators cannot be assigned if they belong to different containers.");
         }
         if (this != &other) {
@@ -261,7 +261,7 @@ namespace ariel{
 
     // Pre-increment operator
     MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator++() {
-        if(currentIndex >= container.getElements().size()){
+        if(currentIndex >= container.getElements().size() || *this == end()){// throw error when try to increase while we at the end
             throw runtime_error("Error: Iterator out of bounds!!!");
         }
         currentIndex++;
@@ -281,9 +281,9 @@ namespace ariel{
         return PrimeIterator(container,container.size());
     }
 
-    //=========================== PrimeIterator Class ===========================
+    //=========================== End PrimeIterator Class ===========================
 
-    //=========================== MagicalContainer Class ===========================
+    //=========================== End MagicalContainer Class ===========================
 }
 
 

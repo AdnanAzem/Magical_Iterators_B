@@ -10,9 +10,9 @@ namespace ariel{
 
         public:
             MagicalContainer(); // Default constructor
-            void addElement(int); // Adding elements to the container
+            void addElement(int); // Adding element to the container
             int size()const; // Return the size of the container
-            void removeElement(int); // Removing elemnt fron the container
+            void removeElement(int); // Removing element from the container
             vector<int> getElements() const; // return the container
 
 
@@ -48,7 +48,6 @@ namespace ariel{
             private:
                 MagicalContainer& container;
                 int currentIndex;
-                // bool fromStart;
 
             public:
                 SideCrossIterator() = delete; 
