@@ -72,16 +72,6 @@ namespace ariel{
         return *this;
     }
 
-    // MagicalContainer::Iterator &MagicalContainer::Iterator::operator++()
-    // {
-    //     if(getIndex() >= getContainer().getElements().size() || *this == end()){ // throw error when try to increase while we at the end
-    //         throw runtime_error("Error: Iterator out of bounds!!!");
-    //     }
-    //     increase(1); // increase the currentIndex by 1.
-    //     return *this;
-    // }
-
-
     MagicalContainer::Iterator::~Iterator() {}
 
     //=========================== End Iterator Class ===========================
@@ -124,8 +114,7 @@ namespace ariel{
 
 
     //=========================== SideCrossIterator Class ===========================
-
-        
+  
     MagicalContainer::SideCrossIterator::SideCrossIterator( MagicalContainer &cont, size_t index)
         : Iterator(cont,index){}
 
